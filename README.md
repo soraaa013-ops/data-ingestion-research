@@ -1,51 +1,24 @@
-# data-ingestion
+# data-ingestion-research
 
-企业内部面向机器学习场景的数据导入架构调研，重点回答：
+生产系统数据如何合理交付给 ML 消费：持续调研项目。
 
-> 当训练数据来自业务系统、且不以建设统一数据湖为前提时，如何在不影响生产系统稳定性的同时，满足数据授权、合规、审计和可追溯要求？
+研究对象是领域内按需构建训练/微调数据集，现有实现为 DSL → Kubernetes Job → OBS/S3。关注交付效率、生产影响、数据正确性、ML 可用性和授权；不预设必须入湖，不安排内部访谈。
 
-本项目调研厂商公开实践，形成生产数据到 ML 消费的整体方案。第一版已覆盖 AWS、Microsoft、Google、阿里云、华为云和 Databricks。不开展内部访谈。
+## 阅读入口
 
-## 背景
+- [研究命题与证据方法](research/charter.md)：区分已知事实、假设和结论。
+- [任务与进度](research/tasks.md)：每项任务的产物、完成条件和缺口。
+- [证据索引](research/evidence.md)：官方来源与结论对应关系。
+- [厂商专题](docs/vendors/index.md)：AWS、Microsoft、Google、阿里云、华为云、Databricks。
+- [交付模式比较](docs/patterns/delivery.md)、[正确性与恢复](docs/patterns/correctness.md)、[授权与数据生命周期](docs/patterns/governance.md)。
+- [来源专项](docs/sources/source-adapters.md)：MySQL、MongoDB、ES、Hive/DWS。
+- [当前场景匹配](docs/scenario/fit.md)、[参考架构](docs/scenario/architecture.md)、[验证计划](docs/scenario/validation.md)。
+- [汇总报告](reports/summary.md)：面向架构评审的阶段性综合判断。
 
-目标平台提供：
+## 当前状态
 
-- 基于 OBS/S3 的 dataset 服务；
-- 从 MongoDB、Elasticsearch、MySQL、Hive、DWS 等来源导入数据的 data-ingestion 服务；
-- 由 Kubernetes Job 执行受限查询，将结果写入文件并上传至 dataset。
+第二版：已形成分专题的公开资料分析和场景方案。不是完成选型或已验证的生产设计。厂商版本覆盖、价格、治理产品深挖和负载实测尚有明确待办，见任务表。
 
-当前需要重点解决两类风险：
-
-1. 导入任务直接查询生产数据库，可能影响业务系统的容量、延迟和可用性；
-2. 缺少统一的数据准入、授权、用途限制、审批、审计、撤销与生命周期机制。
-
-## 调研边界
-
-本调研聚焦小批量或周期性、领域自治、面向训练/微调的数据导入，不默认要求先建设企业级数据湖，也不把通用 ETL/湖仓建设作为前置条件。
-
-纳入范围：
-
-- 业务系统到 ML dataset 的批量/增量数据交付模式；
-- 数据库只读副本、CDC、导出快照、系统侧数据产品/API、消息与交换区等候选路径；
-- 数据所有者、系统所有者、数据空间管理员、使用者和平台方的职责；
-- 数据分类分级、用途审批、最小权限、脱敏、审计、血缘、保留和删除；
-- 对现有 DSL + Kubernetes Job 实现的演进建议。
-
-暂不纳入：
-
-- 企业数据湖/湖仓的完整建设方案；
-- 在线特征服务和实时推理链路；
-- 模型训练平台本身；
-- 针对某一国家或行业给出正式法律意见。
-
-## 当前产物
-
-- [厂商实践与整体架构方案](docs/industry-report.md)
-
-## 状态
-
-`Research / 第一版公开资料研究完成，未进行性能实测`
-
-## License
+所有专题使用“官方事实 → 工程解释 → 场景匹配 → 待验证项”的结构。文档之间通过链接连接，汇总不替代原始分析。原[第一版报告](docs/industry-report.md)仅作历史记录，后续以专题及汇总为准。
 
 [MIT License](LICENSE)
