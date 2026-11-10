@@ -480,6 +480,21 @@
       "evidence_kind": "official documentation",
       "read_scope": "prior-turn verified page",
       "full_page_archived": false
+    },
+    {
+      "id": "N33",
+      "title": "DBLog paper — method sections",
+      "url": "https://arxiv.org/pdf/2010.12597",
+      "locator": "Sections 3.1–3.3; Algorithm 1; PDF pages 3–4",
+      "excerpt": "non-stale reads",
+      "finding": "补读方法部分：在源水位表写入低/高标记包围分块查询，冲突键以窗口日志为准；需要主键范围读及非陈旧读取。",
+      "boundary": "水位标记不是业务 updated_at；方法会写源水位表；2020 对其他工具的比较不代表当前版本。",
+      "group": "cases",
+      "version": "2020-10-23 v1",
+      "accessed_on": "2026-11-10",
+      "evidence_kind": "original research paper",
+      "read_scope": "selected method sections and algorithm",
+      "full_page_archived": false
     }
   ]
 }

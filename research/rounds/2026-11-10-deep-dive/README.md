@@ -1,6 +1,6 @@
 # 深挖轮次：IT 数据怎样真正搬到 ML 平台和湖仓
 
-本轮保留 32 张来源阅读卡。目标是解释端到端搬运，而不是罗列连接器名称。
+本轮保留 33 张来源阅读卡。目标是解释端到端搬运，而不是罗列连接器名称。
 
 ## 证据如何流向结论
 
@@ -50,5 +50,7 @@
 | [N30](sources/N30.md) | LinkedIn Data Integration | cases |
 | [N31](sources/N31.md) | Databricks managed database connectors | lakehouse |
 | [N32](sources/N32.md) | Databricks query-based connectors | lakehouse |
+
+补读：[N33 DBLog 方法部分](sources/N33.md)。N27 保留最初摘要笔记，后续方法阅读单独记录，不覆盖中间认识。
 
 早期来源 E01–E16 保留在[旧证据索引](../../evidence.md)。N31/N32 明确沿用前轮已经读过的 Databricks 文档，不伪装成本轮新增阅读。

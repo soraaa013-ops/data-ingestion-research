@@ -23,3 +23,7 @@
 | [Databricks](databricks.md) | CDC 与 query-based | 持续采集与低频消费可解耦，也可直接定时查询 |
 
 可借鉴架构不等于推荐采购。每篇把产品事实与本平台设计推论分开，未给缺乏依据的产品总分。
+
+## 本轮深入阅读入口
+
+原有六家厂商文档保留为入门。本轮新增[连接器内部机制](../deep-dive/02-connectors.md)、[Databricks / Snowflake / Fabric / AWS 湖仓接入](../deep-dive/03-lakehouse.md)、[华为与阿里逐链路分析](../deep-dive/04-china-cloud.md)，并提供[跨厂商责任比较](../deep-dive/11-comparison.md)。各章包含具体例子及原始文档链接；完整顺序见[深度教程目录](../deep-dive/README.md)。
